@@ -14,7 +14,7 @@
 # invisible(sapply(my_packages, install_if_missing))
 
 
-for (package in c('shiny','dplyr','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools',
+for (package in c('shiny','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools',
                   'lubridate')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package,repos="http://cran.us.r-project.org")
