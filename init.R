@@ -3,15 +3,15 @@
 # # Example R code to install packages if not already installed
 # #
 # 
-my_packages = c('shiny','dplyr','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools')
-
-install_if_missing = function(p) {
-  if (p %in% rownames(installed.packages()) == FALSE) {
-    install.packages(p)
-  }
-}
-
-invisible(sapply(my_packages, install_if_missing))
+# my_packages = c('shiny','dplyr','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools')
+# 
+# install_if_missing = function(p) {
+#   if (p %in% rownames(installed.packages()) == FALSE) {
+#     install.packages(p)
+#   }
+# }
+# 
+# invisible(sapply(my_packages, install_if_missing))
 
 
 # for (package in c('shiny','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools',
@@ -21,3 +21,16 @@ invisible(sapply(my_packages, install_if_missing))
 #     library(package, character.only=T)
 #   }
 # }
+
+
+packages = c('shiny','dplyr','DT','data.table','shinythemes','readxl','openxlsx','datasets','shinydashboard','ggplot2','tidyr','devtools')
+
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
