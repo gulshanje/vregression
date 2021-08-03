@@ -32,7 +32,7 @@ navbarPage("Regression",
            ), 
            navbarMenu("Data",
                       tabPanel("Table",
-                                
+                               dataTableOutput('dataa'),
                                
                       ),
                       tabPanel("About",
